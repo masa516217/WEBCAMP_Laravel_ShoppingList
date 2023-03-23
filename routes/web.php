@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShoppingListController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,8 @@ use App\Http\Controllers\ShoppingListController;
 Route::get('/', [AuthController::class, 'index'])->name('front.index');
 Route::post('/login', [AuthController::class, 'login']);
 
-//Route::get('/shopping/list', [ShoppingListController::class, 'list']);
+//会員登録
+Route::prefix('/user')->group(function () {
+    Route::get('/register', [UserController::class, 'index'])->name('front.user.register');
+    Route::post('/register', [UserController::class, 'register'])->name('front.user.register.post');
+});

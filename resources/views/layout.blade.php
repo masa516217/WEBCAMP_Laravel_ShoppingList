@@ -3,11 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>買い物リスト@yield('title')</title>
+        <title>ショッピングリスト @yield('title')</title>
     </head>
     <body>
-        <form>
-        @yield('contents')
-        </form>
+@yield('contents')
     </body>
 </html>
