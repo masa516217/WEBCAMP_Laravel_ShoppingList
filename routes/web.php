@@ -26,3 +26,11 @@ Route::prefix('/user')->group(function () {
     Route::get('/register', [UserController::class, 'index'])->name('front.user.register');
     Route::post('/register', [UserController::class, 'register'])->name('front.user.register.post');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('/shopping')->group(function () {
+        Route::get('/list', [ShoppingListController::class, 'list']);
+        Route::post('/register', [ShoppingListController::class, 'register']);
+        
+    });
+});
