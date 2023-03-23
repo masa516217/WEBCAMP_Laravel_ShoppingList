@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShoppingListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+// ショッピングリスト
 Route::get('/', [AuthController::class, 'index'])->name('front.index');
+Route::post('/login', [AuthController::class, 'login']);
+
+//Route::get('/shopping/list', [ShoppingListController::class, 'list']);

@@ -13,7 +13,7 @@ class FrontAuthUser extends Seeder
      *
      * @return void
      */
-    public function run()
+    /**public function run()
     {
         //
         DB::table('users')->insert([
@@ -23,4 +23,5 @@ class FrontAuthUser extends Seeder
             'password' => Hash::make('pass'),
         ]);
     }
+    *
 }
