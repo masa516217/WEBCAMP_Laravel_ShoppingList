@@ -6,7 +6,7 @@
         <br>
     <form action="/shopping/register" method="post">
         @csrf
-        「買うもの」名:<input name="to buy"><br>
+        「買うもの」名:<input name="name"><br>
         <button>「買うもの」を登録する</button>
     </form>
         <br>
