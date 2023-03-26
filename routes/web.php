@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/shopping')->group(function () {
         Route::get('/list', [ShoppingListController::class, 'list']);
         Route::post('/register', [ShoppingListController::class, 'register']);
-        
+        Route::delete('/delete/{shopping_id}', [ShoppingListController::class, 'delete'])->whereNumber('shopping_id')->name('delete');
+        Route::post('/complete/{shopping_id}', [ShoppingListController::class, 'complete'])->whereNumber('shopping_id')->name('complete');
     });
+    Route::get('/logout', [AuthController::class, 'logout']);
 });

@@ -24,13 +24,16 @@ class UserController extends Controller
         
         //INSERT table
         
-        try {
+       try {
             $r = UserModel::create($datum);
         //var_dump($r); exit;
         } catch(\Throwable $e) {
-            echo $e->getMessage();
-            exit;
+           // echo $e->getMessage();
+            //exit;
+            $request->session()->flash('front.user_register_failed', true);
+            return redirect('/');
         }
+        $r = UserModel::create($datum);
         
         // 会員登録完了
         $request->session()->flash('front.user_register_success', true);

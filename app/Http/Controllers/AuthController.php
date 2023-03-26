@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginPostRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -32,5 +33,13 @@ class AuthController extends Controller
         
        $request->session()->regenerate();
         return redirect()->intended('/shopping/list');
+    }
+    
+   public function logout(Request $request) 
+    {
+        Auth::logout();
+        $request->session()->regenerateToken();  // CSRFトークンの再生成
+        $request->session()->regenerate();  // セッションIDの再生成
+        return redirect('/');
     }
 }
