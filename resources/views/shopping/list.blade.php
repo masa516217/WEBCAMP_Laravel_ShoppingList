@@ -45,6 +45,28 @@
                     <button onclick='return confirm("買うものを完了します。よろしいですか")'>完了</button></form>
         @endforeach
         </table>
+        {{--{{ $list->links() }}--}}
+        現在{{ $list->currentPage() }}ページ目<br>
+        
+        @if ($list->onFirstPage() === false)
+        <a href="/shopping/list">最初のページ</a>
+        @else
+        最初のページ
+        @endif
+        /
+        @if ($list->previousPageUrl() !== null)
+        <a href="{{ $list->previousPageUrl() }}">前のページ</a>
+        @else
+        前のページ
+        @endif
+        /
+        @if ($list->nextPageUrl() !== null)
+        <a href="{{ $list->nextPageUrl() }}">次のページ</a>
+        @else
+        次のページ
+        @endif
+        /
+        <hr>
         <a href="/logout">ログアウトする</a>
         
 @endsection

@@ -15,7 +15,12 @@ class ShoppingListController extends Controller
     //
     public function list()
     {
-        $list = ShoppingModel::where('user_id', Auth::id())->get();
+        $per_page = 2;
+        
+        $list = ShoppingModel::where('user_id', Auth::id())
+                        ->orderBy('created_at')
+                        ->paginate($per_page);
+                        // ->get();
     //$sql = ShoppingModel::where('user_id', Auth::id())->toSql();
     //echo "<pre>\n"; var_dump($sql, $list); exit;
         return view('shopping.list', ['list' => $list]);
@@ -57,7 +62,7 @@ class ShoppingListController extends Controller
         return redirect('/shopping/list');
     }
     
-    public function complete()
+    public function complete($shopping_id)
     {
         try {
             //トランザクション開始
