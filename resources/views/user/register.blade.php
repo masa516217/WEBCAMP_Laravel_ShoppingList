@@ -2,7 +2,7 @@
 
 {{-- メインコンテンツ --}}
 @section('contents')
-        <h1>会員登録</h1>
+        <h1>ユーザ登録</h1>
         @if ($errors->any())
             <div>
             @foreach ($errors->all() as $error)

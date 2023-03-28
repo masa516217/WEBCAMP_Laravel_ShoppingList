@@ -16,12 +16,12 @@ class FrontAuthUser extends Seeder
     public function run()
     {
         //
-        DB::table('users')->insert([
+        /*DB::table('users')->insert([
             'name' => 'テストユーザー',
             'email' => 'hoge@example.cpm',
             'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => Hash::make('pass'),
-        ]);
+        ]);*/
     }
     
 }

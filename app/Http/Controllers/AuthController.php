@@ -32,7 +32,7 @@ class AuthController extends Controller
         }
         
        $request->session()->regenerate();
-        return redirect()->intended('/shopping/list');
+        return redirect()->intended('/shopping_list/list');
     }
     
    public function logout(Request $request) 

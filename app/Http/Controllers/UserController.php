@@ -33,7 +33,7 @@ class UserController extends Controller
             $request->session()->flash('front.user_register_failed', true);
             return redirect('/');
         }
-        $r = UserModel::create($datum);
+        //$r = UserModel::create($datum);
         
         // 会員登録完了
         $request->session()->flash('front.user_register_success', true);

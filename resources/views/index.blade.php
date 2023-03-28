@@ -4,9 +4,9 @@
 @section('contents')
         <h1>ログイン</h1>
     @if (session('front.user_register_success') == true)
-        会員登録しました<br>
+        ユーザを登録しました!!<br>
         @elseif (session('front.user_register_failed') == true)
-        失敗しました<br>
+        同じemailがあります<br>
     @endif
     
         @if ($errors->any())
@@ -21,6 +21,6 @@
             email：<input name="email" value="{{ old('email') }}"><br>
             パスワード：<input name="password" type="password"><br>
             <button>ログインする</button><br>
-            <a href="/user/register">登録する</a>
+            <a href="/user/register">会員登録</a>
         </form>
 @endsection

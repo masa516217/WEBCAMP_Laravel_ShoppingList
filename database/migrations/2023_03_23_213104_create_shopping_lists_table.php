@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompletedShoppingsTable extends Migration
+class CreateShoppinglistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateCompletedShoppingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('completed_shoppings', function (Blueprint $table) {
-            $table->unsignedInteger('id');
-            $table->string('name', 128)->comment('買うもの名');
+        Schema::create('shoppings', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 255)->comment('買うもの名');
             $table->unsignedBigInteger('user_id')->comment('このリストの所有者');//ユーザ識別
             $table->foreign('user_id')->references('id')->on('users'); //外部キー制約
             //$table->timestamps();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
-            //
-            $table->primary('id');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateCompletedShoppingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('completed_shoppings');
+        Schema::dropIfExists('shoppings');
     }
 }

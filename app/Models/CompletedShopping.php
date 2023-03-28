@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CompletedShopping extends Model
 {
     use HasFactory;
+    
+    //複数代入不可能な属性
+   protected $guarded = [];
 }
