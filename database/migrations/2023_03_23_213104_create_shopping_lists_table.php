@@ -13,7 +13,7 @@ class CreateShoppinglistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shoppings', function (Blueprint $table) {
+        Schema::create('shopping_lists', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->comment('買うもの名');
             $table->unsignedBigInteger('user_id')->comment('このリストの所有者');//ユーザ識別
@@ -31,6 +31,6 @@ class CreateShoppinglistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shoppings');
+        Schema::dropIfExists('shopping_lists');
     }
 }

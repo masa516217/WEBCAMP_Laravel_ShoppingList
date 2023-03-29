@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ShoppingRegisterPostRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Shopping as ShoppingModel;
+use App\Models\ShoppingList as ShoppingListModel;
 use Illuminate\Support\Facades\DB;
 use App\Models\CompletedShopping as CompletedShoppingModel;
 
@@ -18,7 +18,7 @@ class ShoppingListController extends Controller
     {
         $per_page = 3;
         
-        $list = ShoppingModel::where('user_id', Auth::id())
+        $list = ShoppingListModel::where('user_id', Auth::id())
                         //->orderBy('created_at')
                         ->orderBy('name')
                         ->paginate($per_page);
@@ -40,7 +40,7 @@ class ShoppingListController extends Controller
         $datum['user_id'] = Auth::id();
         //INSERT
         try {
-            $r = ShoppingModel::create($datum);
+            $r = ShoppingListModel::create($datum);
         } catch(\Throwable $e) {
            // echo $e->getMessage();
             //exit;
@@ -51,9 +51,9 @@ class ShoppingListController extends Controller
         return redirect('/shopping_list/list');
     }
     
-    protected function getShoppingModel($shopping_list_id)
+    protected function getShoppingListModel($shopping_list_id)
     {
-        $shopping_list = ShoppingModel::find($shopping_list_id);
+        $shopping_list = ShoppingListModel::find($shopping_list_id);
         if ($shopping_list === null) {
             return null;
         }
@@ -66,7 +66,7 @@ class ShoppingListController extends Controller
     public function delete(Request $request, $shopping_list_id)
     {
         //task_idのレコードを取得する
-        $shopping_list = $this->getShoppingModel($shopping_list_id);
+        $shopping_list = $this->getShoppingListModel($shopping_list_id);
         
         //タスクを削除する
         if ($shopping_list !== null) {
@@ -85,7 +85,7 @@ class ShoppingListController extends Controller
             DB::beginTransaction();
             
             //shopping_idのレコードを取得する
-            $shopping_list = $this->getShoppingModel($shopping_list_id);
+            $shopping_list = $this->getShoppingListModel($shopping_list_id);
             if ($shopping_list === null) {
                 throw new \Exception('');
             }

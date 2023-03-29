@@ -6,12 +6,12 @@
 <a href="/shopping_list/list">「買うもの」一覧に戻る</a><br>
 <table border="1">
     <tr>
+        <th>「買うもの」名
         <th>購入日
-        <th>買うもの名
 @foreach ($list as $shopping)
     <tr>
-        <td>{{ $shopping->created_at }}
         <td>{{ $shopping->name }}
+        <td>{{ $shopping->created_at->format('Y/m/d') }}
 @endforeach
 </table>
 現在{{ $list->currentPage() }} ページ目<br>

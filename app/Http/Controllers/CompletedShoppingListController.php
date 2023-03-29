@@ -16,7 +16,7 @@ class CompletedShoppingListController extends Controller
         
         $list = CompletedShoppingModel::where('user_id', Auth::id())
         ->orderBy('name')
-        //->orderBy('')
+        ->orderBy('created_at')
         ->paginate($per_page);
     //$sql = CompletedShoppingModel::where('user_id', Auth::id())->toSql();
     //echo "<pre>\n"; var_dump($sql, $list); exit;
