@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AdminHomeController extends Controller
+class HomeController extends Controller
 {
     //
      public function top()

@@ -1,13 +1,15 @@
 <?php
 declare(strict_types=1);
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminLoginPostRequest;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuthController extends Controller
+
+
+class AuthController extends Controller
 {
     //
     public function index() 
@@ -35,4 +37,6 @@ class AdminAuthController extends Controller
         $request->session()->regenerate();
         return redirect(route('admin.index'));
     }
+    
+   
 }
