@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         $datum = $request->validated();
         $datum['password'] = Hash::make($datum['password']);
-        $datum['password_confirmation'] = Hash::make($datum['password_confirmation']);
+        //$datum['password_confirmation'] = Hash::make($datum['password_confirmation']);
         // var_dump($datum); exit;
         
         //INSERT table
