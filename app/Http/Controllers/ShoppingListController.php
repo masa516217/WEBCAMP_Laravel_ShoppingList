@@ -9,7 +9,7 @@ use App\Http\Requests\ShoppingRegisterPostRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ShoppingList as ShoppingListModel;
 use Illuminate\Support\Facades\DB;
-use App\Models\CompletedShopping as CompletedShoppingModel;
+use App\Models\CompletedShoppingList as CompletedShoppingListModel;
 
 class ShoppingListController extends Controller
 {
@@ -96,7 +96,7 @@ class ShoppingListController extends Controller
             $dask_datum = $shopping_list->toArray();
             unset($dask_datum['created_at']);
             unset($dask_datum['updated_at']);
-            $r = CompletedShoppingModel::create($dask_datum);
+            $r = CompletedShoppingListModel::create($dask_datum);
             if ($r === null) {
                 // insertで失敗したのでトランザクション終了
                 throw new \Exception('');

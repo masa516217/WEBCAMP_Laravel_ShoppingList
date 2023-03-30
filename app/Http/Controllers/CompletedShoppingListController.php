@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\CompletedShopping as CompletedShoppingModel;
+use App\Models\CompletedShoppingList as CompletedShoppingListModel;
 use Illuminate\Support\Facades\Auth;
 
 class CompletedShoppingListController extends Controller
@@ -14,7 +14,7 @@ class CompletedShoppingListController extends Controller
     {
         $per_page = 3;
         
-        $list = CompletedShoppingModel::where('user_id', Auth::id())
+        $list = CompletedShoppingListModel::where('user_id', Auth::id())
         ->orderBy('name')
         ->orderBy('created_at')
         ->paginate($per_page);
