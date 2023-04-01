@@ -4,13 +4,13 @@
 @section('contents')
         <h1>「買うもの」の登録</h1>
         @if (session('front.shopping_list_register_success') == true)
-        「買うもの」を登録しました<br>
+        「買うもの」を登録しました！！<br>
         @endif
         @if (session('front.shopping_list_delete_succes') == true)
-        「買うもの」を削除しました<br>
+        「買うもの」を削除しました！！<br>
         @endif
         @if (session('front.shopping_list_completed_success') == true)
-        「買うもの」を完了にしました!!<br>
+        「買うもの」を完了にしました！！<br>
         @endif
         @if (session('front.shopping_list_completed_failed') == true)
         失敗しました<br>
@@ -41,7 +41,7 @@
                 <td>{{ $shopping_list->name }}
                 <td><form action="{{ route('complete', ['shopping_list_id' => $shopping_list->id]) }}" method="post">
                     @csrf
-                    <button onclick='return confirm("この「買うもの」を「完了」します。よろしいですか？")'>完了</button></form>
+                    <button onclick='return confirm("この「買うもの」を「完了」にします。よろしいですか？")'>完了</button></form>
                 <td>　</td>
                 <td><form action="{{ route('delete', ['shopping_list_id' => $shopping_list->id]) }}" method="post">
                     @csrf
@@ -60,15 +60,15 @@
         @endif
         /
         @if ($list->previousPageUrl() !== null)
-        <a href="{{ $list->previousPageUrl() }}">前のページ</a>
+        <a href="{{ $list->previousPageUrl() }}">前に戻る</a>
         @else
-        前のページ
+        前に戻る
         @endif
         /
         @if ($list->nextPageUrl() !== null)
-        <a href="{{ $list->nextPageUrl() }}">次のページ</a>
+        <a href="{{ $list->nextPageUrl() }}">次に進む</a>
         @else
-        次のページ
+        次に進む
         @endif
         /
         <hr>
